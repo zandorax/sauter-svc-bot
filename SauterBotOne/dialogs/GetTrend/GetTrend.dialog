@@ -23,7 +23,7 @@
           },
           "resultProperty": "dialog.trend_url",
           "method": "GET",
-          "url": "https://localhost:7270/Trend",
+          "url": "https://svc-connector.azurewebsites.net//Trend",
           "contentType": "text/plain"
         },
         {

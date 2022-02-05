@@ -23,7 +23,7 @@
           },
           "resultProperty": "dialog.api_response_alarm",
           "method": "GET",
-          "url": "https://localhost:7270/Alarm",
+          "url": "https://svc-connector.azurewebsites.net/Alarm",
           "responseType": "json"
         },
         {
@@ -176,7 +176,7 @@
           },
           "resultProperty": "turn.results",
           "method": "POST",
-          "url": "https://localhost:7270/AckTransition?objId=${turn.Activity.Value[\"dataObjectId\"]}&toState=${turn.Activity.Value[\"toState\"]}&comment=${turn.Activity.Value[\"comment\"]}"
+          "url": "https://svc-connector.azurewebsites.net/AckTransition?objId=${turn.Activity.Value[\"dataObjectId\"]}&toState=${turn.Activity.Value[\"toState\"]}&comment=${turn.Activity.Value[\"comment\"]}"
         }
       ]
     }
