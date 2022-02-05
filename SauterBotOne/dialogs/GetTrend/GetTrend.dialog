@@ -1,0 +1,42 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "ynWOeI",
+    "name": "GetTrend",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "41Ttzw"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "qfp8jD"
+          },
+          "resultProperty": "dialog.trend_url",
+          "method": "GET",
+          "url": "https://localhost:7270/Trend",
+          "contentType": "text/plain"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "41RAcG"
+          },
+          "activity": "${SendActivity_41RAcG()}"
+        }
+      ]
+    }
+  ],
+  "generator": "GetTrend.lg",
+  "recognizer": "GetTrend.lu.qna",
+  "id": "GetTrend"
+}

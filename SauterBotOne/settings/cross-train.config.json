@@ -1,0 +1,25 @@
+{
+  "SauterBotOne.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "": [
+        "WelcomeDialog.en-us"
+      ],
+      "Cancel": [
+        "CancelDialog.en-us"
+      ],
+      "Help": [
+        "HelpDialog.en-us"
+      ],
+      "test": [
+        "TestCard.en-us"
+      ],
+      "GetAlarm": [
+        "TestCard.en-us"
+      ],
+      "GetTrend": [
+        "GetTrend.en-us"
+      ]
+    }
+  }
+}

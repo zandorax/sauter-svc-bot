@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_SauterBotOne",
+  "recognizers": {
+    "en-us": "SauterBotOne.en-us.lu",
+    "": "SauterBotOne.en-us.lu"
+  }
+}

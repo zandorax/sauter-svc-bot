@@ -1,0 +1,23 @@
+﻿
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <UserSecretsId>2606b8ae-fe62-4438-a83d-ef022cbdc6ac</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="**/*.blu;**/*.dialog;**/*.lg;**/*.lu;**/*.model;**/*.onnx;**/*.qna;**/*.txt" Exclude="$(BaseOutputPath)/**;$(BaseIntermediateOutputPath)/**;wwwroot/**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.Luis" Version="4.15.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.QnA" Version="4.15.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Adaptive.Runtime" Version="4.15.0" />
+    <PackageReference Include="Microsoft.Bot.Components.AdaptiveCards" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Bot.Components.HelpAndCancel" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Bot.Components.Welcome" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Bot.Connector.DirectLine" Version="3.0.2" />
+  </ItemGroup>
+</Project>
