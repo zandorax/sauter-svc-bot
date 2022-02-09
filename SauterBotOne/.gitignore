@@ -1,2 +1,6 @@
 # files generated during the lubuild process
 generated/
+obj
+bin
+.idea
+
