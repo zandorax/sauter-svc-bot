@@ -6,8 +6,13 @@
 ]
 
 # SendActivity_HelpOverview_text()
-- I'm here to help with simple asks. I'm just a basic bot for now. 
-- I'm a simple bot, I can help you with minimal requests. 
-- For now, I can only help you with simple questions.
+- Gerne helfe ich ihnen weiter
 
 > Imported: 95949fcc5eb2077f9cffd10817a11340
+# SendActivity_WQF3p1()
+[Activity
+    Text = ${SendActivity_WQF3p1_text()}
+]
+
+# SendActivity_WQF3p1_text()
+- Sie können von mir folgenede Informationen haben: \r\n 1. \r\n 2.

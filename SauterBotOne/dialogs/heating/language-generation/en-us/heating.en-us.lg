@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# SendActivity_IdNF45()
+[Activity
+    Text = ${SendActivity_IdNF45_text()}
+]
+
+# SendActivity_IdNF45_text()
+- Heizen

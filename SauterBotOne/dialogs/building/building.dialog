@@ -1,0 +1,32 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "tzSVxj",
+    "name": "building",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "1Cy7fg"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "kRbXtt"
+          },
+          "activity": "${SendActivity_kRbXtt()}"
+        }
+      ]
+    }
+  ],
+  "generator": "building.lg",
+  "recognizer": "building.lu.qna",
+  "id": "building"
+}

@@ -1,4 +1,4 @@
-﻿[import](common.lg)
+[import](common.lg)
 
 # SendActivity_WelcomeReturningUser()
 [Activity
@@ -18,8 +18,20 @@
 ]
 
 # SendActivity_WelcomeNewUser_text()
-- 🖐️ Hey, there! How can I help you today?
-- 🖐️ Hi! How can I help?
-- 🖐️ Hello! What do you want to do today?
+- 🖐️ Willkommen beim SAUTER Chatbot. Gerne beantworte ich ihnen Fragen zu ihren Gebäude Management System.
 
 > Imported: ecb31044e0e5c0b54f49870e6872f158
+# SendActivity_QIyLpm()
+[Activity
+    Text = ${SendActivity_QIyLpm_text()}
+]
+
+# SendActivity_QIyLpm_text()
+- Ich kann ihnen Alarme ausgeben oder sie durch die Datenpunkte ihres Systems durchführen
+# SendActivity_KBPHJV()
+[Activity
+    Text = ${SendActivity_KBPHJV_text()}
+]
+
+# SendActivity_KBPHJV_text()
+- Wenn sie Hilfe benötigen schreiben sie einfach Hilfe.

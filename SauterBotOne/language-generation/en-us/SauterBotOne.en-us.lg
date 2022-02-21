@@ -6,17 +6,28 @@
 ]
 
 # SendActivity_ErrorOccured_text()
-- Oops, looks like I'm stuck. Can you try to ask me in a different way?
-- Looks like I'm all mixed up. Let's try asking again, but maybe rephrase your request?
-- Sorry, it looks like something went wrong. Can you please try again?
-
-# SendActivity_DidNotUnderstand()
+- Verzeihung, ich verstehe sie nicht.
+- Entschuldigen sie. Das habe ich nicht verstanden.
+- Offenbar verstehe ich das nicht, Sorry
+# SendActivity_IQMEuO()
 [Activity
     Text = ${SendActivity_DidNotUnderstand_text()}
 ]
 
 # SendActivity_DidNotUnderstand_text()
-- Sorry, I didn't get that
-- I'm not sure I understand. Can you please try again?
-- Hmm, I don't understand. Can you try to ask me in a different way. 
-- I didn't get that. Would you mind rephrasing and try it again.
+- Entschuldigen sie  das habe ich nicht verstanden. \r\n Wollen sie die Frage anderst formulieren? \r\n Wenn sie Hilfe brauchen schreiben sie einfach Hilfe in den Chat.
+# SendActivity_jC7VFS()
+[Activity
+    Text = ${SendActivity_jC7VFS_text()}
+]
+
+# SendActivity_jC7VFS_text()
+- Bitte Fragen si mich nochmals
+- Bitte verfassen sie ihre Frage anderst
+# SendActivity_6XKNOl()
+[Activity
+    Text = ${SendActivity_6XKNOl_text()}
+]
+
+# SendActivity_6XKNOl_text()
+- Kein Problem, dann machen wir hier weiter

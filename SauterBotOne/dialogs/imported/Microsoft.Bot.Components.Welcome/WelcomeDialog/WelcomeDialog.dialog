@@ -42,6 +42,20 @@
               "activity": "${SendActivity_WelcomeNewUser()}"
             },
             {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "QIyLpm"
+              },
+              "activity": "${SendActivity_QIyLpm()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "KBPHJV"
+              },
+              "activity": "${SendActivity_KBPHJV()}"
+            },
+            {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
                 "id": "ucFnwQ"
