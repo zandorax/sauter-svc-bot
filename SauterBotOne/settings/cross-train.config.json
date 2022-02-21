@@ -40,6 +40,9 @@
       ],
       "ventilation": [
         "ventilation.en-us"
+      ],
+      "search": [
+        "search.en-us"
       ]
     }
   }

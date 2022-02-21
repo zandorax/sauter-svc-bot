@@ -1,0 +1,162 @@
+[import](common.lg)
+
+# Ask_Activity_kY48G3()
+[Activity
+    Attachments = ${json(Ask_Activity_kY48G3_attachment_0vUxIZ())}
+]
+
+# Ask_Activity_kY48G3_attachment_0vUxIZ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "body": [
+        {
+            "text": "Objektsuche",
+            "type": "TextBlock",
+            "size": "Large",
+            "weight": "Bolder"
+        },
+        {
+            "placeholder": "Objektname",
+            "type": "Input.Text",
+            "maxLength": 20,
+            "id": "objectName"
+        },
+        {
+            "choices": [
+                {
+                    "title": "Temperatur (°C)",
+                    "value": "°C"
+                },
+                {
+                    "title": "%",
+                    "value": "%"
+                },
+                {
+                    "title": "ppm",
+                    "value": "ppm"
+                },
+                {
+                    "title": "n/a",
+                    "value": "0"
+                }
+            ],
+            "placeholder": "Einheit",
+            "type": "Input.ChoiceSet",
+            "id": "objectUnit"
+        },
+        {
+            "choices": [
+                {
+                    "title": "Schalter",
+                    "value": "2"
+                },
+                {
+                    "title": "Sensoren",
+                    "value": "4"
+                }
+            ],
+            "placeholder": "Objekttyp",
+            "type": "Input.ChoiceSet",
+            "id": "objectTyp"
+        }
+    ],
+    "actions": [
+        {
+            "title": "SUCHEN",
+            "type": "Action.Submit"
+        }
+    ]
+}```
+# SendActivity_KA62HU()
+[Activity
+    Text = ${SendActivity_KA62HU_text()}
+]
+
+# SendActivity_KA62HU_text()
+- ${dialog.api_response_object.content}
+# SendActivity_3GJhei()
+[Activity
+    Text = ${SendActivity_3GJhei_text()}
+]
+
+# SendActivity_3GJhei_text()
+- ${dialog.api_response_object.content}
+# SendActivity_IC0mOM()
+[Activity
+    Attachments = ${json(SendActivity_IC0mOM_attachment_gZGAUD())}
+]
+
+# SendActivity_IC0mOM_attachment_gZGAUD()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+-```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+        {
+            "type": "TextBlock",
+            "text": "${dialog.api_response_object.content[0].name}",
+            "size":"medium",
+            "weight": "bolder",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Objektbeschreibung: ${dialog.api_response_object.content[0].description}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Einheit: ${dialog.api_response_object.content[0].unit}",
+            "wrap": true
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}```
+
+
+# SendActivity_TSRUGH()
+[Activity
+    Attachments = ${json(SendActivity_TSRUGH_attachment_JpYbCc())}
+]
+
+# SendActivity_nENM20()
+[Activity
+    Text = ${SendActivity_nENM20_text()}
+]
+
+# SendActivity_nENM20_text()
+- ${dialog.test}
+# SendActivity_TSRUGH_attachment_JpYbCc()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+-```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+        {
+            "type": "TextBlock",
+            "text": "${dialog.foreach.value.name}",
+            "size":"medium",
+            "weight": "bolder",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Objektbeschreibung: ${dialog.foreach.value.description}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Aktueller Wert:${dialog.test} ${dialog.foreach.value.unit}",
+            "wrap": true
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}```

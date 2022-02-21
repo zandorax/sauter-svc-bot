@@ -364,6 +364,25 @@
           "dialog": "ventilation"
         }
       ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "0Ggpw3",
+        "name": "search"
+      },
+      "intent": "search",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "m8UdFA"
+          },
+          "activityProcessed": true,
+          "dialog": "search"
+        }
+      ],
+      "condition": true
     }
   ],
   "generator": "SauterBotOne.lg",
