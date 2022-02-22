@@ -103,6 +103,24 @@
           ],
           "default": [
             {
+              "$kind": "Microsoft.Foreach",
+              "$designer": {
+                "id": "QosjlR"
+              },
+              "index": "dialog.api_response_alarm.size",
+              "value": "dialog.foreach.value",
+              "itemsProperty": "dialog.api_response_alarm.content.alarms",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "VHqW2O"
+                  },
+                  "activity": "${SendActivity_VHqW2O()}"
+                }
+              ]
+            },
+            {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
                 "id": "9bU0N6"

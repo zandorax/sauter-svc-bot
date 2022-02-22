@@ -535,3 +535,9 @@
         }
     ]
 }```
+# SendActivity_VHqW2O_text()
+- ${dialog.foreach.value}
+# SendActivity_VHqW2O()
+[Activity
+    Text = ${SendActivity_VHqW2O_text()}
+]
