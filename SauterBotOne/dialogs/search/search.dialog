@@ -42,13 +42,6 @@
           "url": "https://svc-connector.azurewebsites.net/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectTyp\"]}"
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "KA62HU"
-          },
-          "activity": "${SendActivity_KA62HU()}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "Bilu4X"
@@ -70,32 +63,18 @@
                     "id": "ZHZbmt"
                   },
                   "resultProperty": "dialog.test",
-                  "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
+                  "url": "https://localhost:7270/DataObject/value?objectId=${dialog.foreach.value.id}",
                   "method": "GET",
                   "contentType": "application/json"
                 },
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "nENM20"
+                    "id": "uIWXmg"
                   },
-                  "activity": "${SendActivity_nENM20()}"
-                },
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "TSRUGH"
-                  },
-                  "activity": "${SendActivity_TSRUGH()}"
+                  "activity": "${SendActivity_uIWXmg()}"
                 }
               ]
-            },
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "IC0mOM"
-              },
-              "activity": "${SendActivity_IC0mOM()}"
             }
           ],
           "elseActions": [

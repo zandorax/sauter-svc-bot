@@ -71,13 +71,6 @@
         }
     ]
 }```
-# SendActivity_KA62HU()
-[Activity
-    Text = ${SendActivity_KA62HU_text()}
-]
-
-# SendActivity_KA62HU_text()
-- ${dialog.api_response_object.content}
 # SendActivity_3GJhei()
 [Activity
     Text = ${SendActivity_3GJhei_text()}
@@ -85,54 +78,7 @@
 
 # SendActivity_3GJhei_text()
 - ${dialog.api_response_object.content}
-# SendActivity_IC0mOM()
-[Activity
-    Attachments = ${json(SendActivity_IC0mOM_attachment_gZGAUD())}
-]
-
-# SendActivity_IC0mOM_attachment_gZGAUD()
-> To learn more Adaptive Cards format, read the documentation at
-> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
--```{
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-  "version": "1.2",
-  "type": "AdaptiveCard",
-  "body": [
-        {
-            "type": "TextBlock",
-            "text": "${dialog.api_response_object.content[0].name}",
-            "size":"medium",
-            "weight": "bolder",
-            "wrap": true
-        },
-        {
-            "type": "TextBlock",
-            "text": "Objektbeschreibung: ${dialog.api_response_object.content[0].description}",
-            "wrap": true
-        },
-        {
-            "type": "TextBlock",
-            "text": "Einheit: ${dialog.api_response_object.content[0].unit}",
-            "wrap": true
-        }
-    ],
-    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
-}```
-
-
-# SendActivity_TSRUGH()
-[Activity
-    Attachments = ${json(SendActivity_TSRUGH_attachment_JpYbCc())}
-]
-
-# SendActivity_nENM20()
-[Activity
-    Text = ${SendActivity_nENM20_text()}
-]
-
-# SendActivity_nENM20_text()
-- ${dialog.test}
-# SendActivity_TSRUGH_attachment_JpYbCc()
+# SendActivity_uIWXmg_attachment_gZGAUD()
 > To learn more Adaptive Cards format, read the documentation at
 > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
 -```{
@@ -154,9 +100,14 @@
         },
         {
             "type": "TextBlock",
-            "text": "Aktueller Wert:${dialog.test} ${dialog.foreach.value.unit}",
+            "text": "Aktueller Wert: ${dialog.test.content.value} ${dialog.foreach.value.unit}",
+            "weight": "bolder",
             "wrap": true
         }
     ],
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
 }```
+# SendActivity_uIWXmg()
+[Activity
+    Attachments = ${json(SendActivity_uIWXmg_attachment_gZGAUD())}
+]
