@@ -63,7 +63,7 @@
                     "id": "ZHZbmt"
                   },
                   "resultProperty": "dialog.test",
-                  "url": "https://localhost:7270/DataObject/value?objectId=${dialog.foreach.value.id}",
+                  "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
                   "method": "GET",
                   "contentType": "application/json"
                 },
