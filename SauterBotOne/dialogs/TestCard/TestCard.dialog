@@ -27,122 +27,52 @@
           "responseType": "json"
         },
         {
-          "$kind": "Microsoft.SwitchCondition",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "KHDoje"
+            "id": "ObiaVI"
           },
-          "condition": "=dialog.api_response_alarm.content.size",
-          "cases": [
+          "condition": "=dialog.api_response_alarm.statusCode == 200",
+          "actions": [
             {
-              "value": "1",
+              "$kind": "Microsoft.Foreach",
+              "$designer": {
+                "id": "oCWPhf"
+              },
+              "index": "dialog.api_response_alarm.content.alarms.size",
+              "value": "dialog.foreach.value",
+              "itemsProperty": "dialog.api_response_alarm.content.alarms",
               "actions": [
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "TLYCeF"
-                  },
-                  "activity": "${SendActivity_TLYCeF()}"
-                },
                 {
                   "$kind": "Microsoft.Ask",
                   "$designer": {
-                    "id": "n1mb7O"
+                    "id": "9vPQ6Y"
                   },
-                  "activity": "${Ask_Activity_n1mb7O()}"
-                }
-              ]
-            },
-            {
-              "value": "2",
-              "actions": [
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "fx9jb9"
-                  },
-                  "activity": "${SendActivity_fx9jb9()}"
-                }
-              ]
-            },
-            {
-              "value": "3",
-              "actions": [
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "wGFVJw"
-                  },
-                  "activity": "${SendActivity_wGFVJw()}"
-                }
-              ]
-            },
-            {
-              "value": "4",
-              "actions": [
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "HECyAR"
-                  },
-                  "activity": "${SendActivity_HECyAR()}"
-                }
-              ]
-            },
-            {
-              "value": "5",
-              "actions": [
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "lGATHj"
-                  },
-                  "activity": "${SendActivity_lGATHj()}"
+                  "activity": "${Ask_Activity_F83Q4Z()}"
                 }
               ]
             }
           ],
-          "default": [
+          "elseActions": [
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "9bU0N6"
+                "id": "4JlacY"
               },
-              "activity": "${SendActivity_9bU0N6()}"
+              "activity": "${SendActivity_4JlacY()}"
             },
             {
-              "$kind": "Microsoft.Ask",
+              "$kind": "Microsoft.EndDialog",
               "$designer": {
-                "id": "oI6Oyl"
-              },
-              "activity": "${Ask_Activity_Ic7b0f()}"
+                "id": "ap9Ptv"
+              }
             },
             {
-              "$kind": "Microsoft.Ask",
+              "$kind": "Microsoft.BeginDialog",
               "$designer": {
-                "id": "b8Q8a0"
+                "id": "ZNB5uB"
               },
-              "activity": "${Ask_Activity_b8Q8a0()}"
-            },
-            {
-              "$kind": "Microsoft.Ask",
-              "$designer": {
-                "id": "gZKXJo"
-              },
-              "activity": "${Ask_Activity_gZKXJo()}"
-            },
-            {
-              "$kind": "Microsoft.Ask",
-              "$designer": {
-                "id": "cuFTYi"
-              },
-              "activity": "${Ask_Activity_cuFTYi()}"
-            },
-            {
-              "$kind": "Microsoft.Ask",
-              "$designer": {
-                "id": "tlo01R"
-              },
-              "activity": "${Ask_Activity_tlo01R()}"
+              "activityProcessed": true,
+              "dialog": "WelcomeDialog"
             }
           ]
         }
