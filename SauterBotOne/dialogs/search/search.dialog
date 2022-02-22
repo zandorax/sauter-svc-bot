@@ -62,7 +62,7 @@
                   "$designer": {
                     "id": "ZHZbmt"
                   },
-                  "resultProperty": "dialog.test",
+                  "resultProperty": "dialog.api_response_value",
                   "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
                   "method": "GET",
                   "contentType": "application/json"
