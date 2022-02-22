@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# SendActivity_sL8Leo()
+[Activity
+    Text = ${SendActivity_sL8Leo_text()}
+]
+
+# SendActivity_sL8Leo_text()
+- Switch

@@ -1,0 +1,32 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "OBzNmq",
+    "name": "GetSwitch",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "vLDqGG"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "sL8Leo"
+          },
+          "activity": "${SendActivity_sL8Leo()}"
+        }
+      ]
+    }
+  ],
+  "generator": "GetSwitch.lg",
+  "recognizer": "GetSwitch.lu.qna",
+  "id": "GetSwitch"
+}

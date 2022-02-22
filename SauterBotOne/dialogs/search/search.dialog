@@ -33,64 +33,43 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.HttpRequest",
-          "$designer": {
-            "id": "vGx9Vg"
-          },
-          "resultProperty": "dialog.api_response_object",
-          "method": "GET",
-          "url": "https://svc-connector.azurewebsites.net/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectTyp\"]}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "Bilu4X"
+            "id": "8rUNpa"
           },
-          "condition": "=dialog.api_response_object.statusCode == 200",
+          "condition": "=turn.activity.value[\"objectTyp\"] == 2",
           "actions": [
             {
-              "$kind": "Microsoft.Foreach",
+              "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "QChuM6"
+                "id": "VTek4V"
               },
-              "value": "dialog.foreach.value",
-              "itemsProperty": "dialog.api_response_object.content",
-              "index": "dialog.api_response_object.size",
-              "actions": [
-                {
-                  "$kind": "Microsoft.HttpRequest",
-                  "$designer": {
-                    "id": "ZHZbmt"
-                  },
-                  "resultProperty": "dialog.api_response_value",
-                  "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
-                  "method": "GET",
-                  "contentType": "application/json"
-                },
-                {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "uIWXmg"
-                  },
-                  "activity": "${SendActivity_uIWXmg()}"
-                }
-              ]
+              "activity": "${SendActivity_VTek4V()}"
+            },
+            {
+              "$kind": "Microsoft.ReplaceDialog",
+              "$designer": {
+                "id": "XLCWrT"
+              },
+              "activityProcessed": true,
+              "dialog": "GetTrend"
             }
           ],
           "elseActions": [
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "3GJhei"
+                "id": "rJ5LFj"
               },
-              "activity": "${SendActivity_3GJhei()}"
+              "activity": "${SendActivity_rJ5LFj()}"
             },
             {
-              "$kind": "Microsoft.RepeatDialog",
+              "$kind": "Microsoft.ReplaceDialog",
               "$designer": {
-                "id": "obIjka"
+                "id": "F5o87S"
               },
-              "activityProcessed": true
+              "activityProcessed": true,
+              "dialog": "GetTrend"
             }
           ]
         }
