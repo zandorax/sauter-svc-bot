@@ -37,7 +37,7 @@
           "$designer": {
             "id": "8rUNpa"
           },
-          "condition": "=turn.activity.value[\"objectTyp\"] == 2",
+          "condition": "=turn.activity.value[\"objectType\"] == \"2\"",
           "actions": [
             {
               "$kind": "Microsoft.SendActivity",
@@ -69,7 +69,7 @@
                 "id": "F5o87S"
               },
               "activityProcessed": true,
-              "dialog": "GetTrend"
+              "dialog": "GetSwitch"
             }
           ]
         }

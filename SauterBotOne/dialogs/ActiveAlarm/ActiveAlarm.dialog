@@ -1,9 +1,9 @@
 {
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
-    "id": "cUbb9O",
-    "name": "TestCard",
-    "comment": "Debugging"
+    "id": "5UBfug",
+    "name": "ActiveAlarm",
+    "comment": ""
   },
   "autoEndDialog": true,
   "defaultResultProperty": "dialog.result",
@@ -13,98 +13,118 @@
       "$designer": {
         "name": "BeginDialog",
         "description": "",
-        "id": "9jPTCq"
+        "id": "WzEi1K"
       },
       "actions": [
         {
           "$kind": "Microsoft.HttpRequest",
           "$designer": {
-            "id": "9Wnsyx"
+            "id": "aGwkrv"
           },
           "resultProperty": "dialog.api_response_alarm",
           "method": "GET",
           "url": "https://svc-connector.azurewebsites.net/Alarm",
+          "contentType": "application/json",
           "responseType": "json"
         },
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "ObiaVI"
+            "id": "RNG2e0"
           },
-          "condition": "=dialog.api_response_alarm.statusCode == 200",
           "actions": [
             {
               "$kind": "Microsoft.Foreach",
               "$designer": {
-                "id": "oCWPhf"
+                "id": "YQuFcH"
               },
               "index": "dialog.api_response_alarm.content.alarms.size",
               "value": "dialog.foreach.value",
-              "itemsProperty": "dialog.api_response_alarm.content.alarms",
               "actions": [
                 {
                   "$kind": "Microsoft.Ask",
                   "$designer": {
-                    "id": "9vPQ6Y"
+                    "id": "O2aowv"
                   },
-                  "activity": "${Ask_Activity_F83Q4Z()}"
+                  "activity": "${Ask_Activity_O2aowv()}"
                 }
-              ]
+              ],
+              "itemsProperty": "dialog.api_response_alarm.content.alarms"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "dXz4Qp"
+              },
+              "activity": "${SendActivity_dXz4Qp()}"
             }
           ],
           "elseActions": [
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "4JlacY"
+                "id": "2N1Jgv"
               },
-              "activity": "${SendActivity_4JlacY()}"
-            },
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "ap9Ptv"
-              }
+              "activity": "${SendActivity_2N1Jgv()}"
             },
             {
               "$kind": "Microsoft.BeginDialog",
               "$designer": {
-                "id": "ZNB5uB"
+                "id": "YNuow0"
               },
               "activityProcessed": true,
-              "dialog": "WelcomeDialog"
+              "dialog": "HelpDialog"
             }
-          ]
+          ],
+          "condition": "=dialog.api_response_alarm.statusCode == 200"
         }
       ]
     },
     {
       "$kind": "Microsoft.Bot.Components.OnActionSubmit",
       "$designer": {
-        "id": "AmKCWd",
+        "id": "gb4bmp",
         "name": "Action.Submit (message activity)"
       },
       "actions": [
         {
           "$kind": "Microsoft.HttpRequest",
           "$designer": {
-            "id": "u3kYLA"
+            "id": "HXoM1f"
           },
           "resultProperty": "turn.results",
           "method": "POST",
-          "url": "https://svc-connector.azurewebsites.net/AckTransition?objId=${turn.Activity.Value[\"dataObjectId\"]}&toState=${turn.Activity.Value[\"toState\"]}&comment=${turn.Activity.Value[\"comment\"]}"
+          "url": "https://svc-connector.azurewebsites.net/AckTransition?objId=${turn.activity.value[\"dataObjectID\"]}&toState=${turn.activity.value[\"fromState\"]}&comment=${turn.activity.value[\"comment\"]}"
         },
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "GFvDyM"
+            "id": "w39Ovu"
           },
-          "activity": "${SendActivity_GFvDyM()}"
+          "condition": "=turn.results.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "tGgF2h"
+              },
+              "activity": "${SendActivity_tGgF2h()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "93oC3D"
+              },
+              "activity": "${SendActivity_93oC3D()}"
+            }
+          ]
         }
       ]
     }
   ],
-  "generator": "TestCard.lg",
-  "recognizer": "TestCard.lu.qna",
-  "id": "TestCard"
+  "generator": "ActiveAlarm.lg",
+  "recognizer": "ActiveAlarm.lu.qna",
+  "id": "ActiveAlarm"
 }

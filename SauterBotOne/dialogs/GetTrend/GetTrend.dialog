@@ -24,7 +24,7 @@
           },
           "resultProperty": "dialog.api_response_object",
           "method": "GET",
-          "url": "https://localhost:7270/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectTyp\"]}"
+          "url": "https://svc-connector.azurewebsites.net/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectType\"]}"
         },
         {
           "$kind": "Microsoft.IfCondition",
@@ -48,7 +48,7 @@
                     "id": "quzKAg"
                   },
                   "resultProperty": "dialog.api_response_value",
-                  "url": "https://localhost:7270/DataObject/value?objectId=${dialog.foreach.value.id}",
+                  "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
                   "method": "GET",
                   "contentType": "application/json"
                 },
@@ -96,7 +96,7 @@
           },
           "resultProperty": "dialog.trend_url",
           "method": "GET",
-          "url": "https://localhost:7270/Trend/${turn.Activity.Value[\"trendType\"]}?objectId=${turn.Activity.Value[\"dataObjectID\"]}"
+          "url": "https://svc-connector.azurewebsites.net/Trend/${turn.Activity.Value[\"trendType\"]}?objectId=${turn.Activity.Value[\"dataObjectID\"]}"
         },
         {
           "$kind": "Microsoft.Ask",

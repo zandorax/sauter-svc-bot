@@ -156,60 +156,6 @@
     {
       "$kind": "Microsoft.OnIntent",
       "$designer": {
-        "id": "bmqW9B",
-        "name": "test"
-      },
-      "intent": "test",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "SoUtwK"
-          },
-          "activityProcessed": true,
-          "dialog": "TestCard"
-        }
-      ]
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "jg5O99",
-        "name": "GetAlarm"
-      },
-      "intent": "GetAlarm",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "4Ghl54"
-          },
-          "activityProcessed": true,
-          "dialog": "TestCard"
-        }
-      ]
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "IuviUm",
-        "name": "GetTrend"
-      },
-      "intent": "GetTrend",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "izmemX"
-          },
-          "activityProcessed": true,
-          "dialog": "GetTrend"
-        }
-      ]
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
         "id": "HNKPm3",
         "name": "goToSVC"
       },
@@ -383,6 +329,24 @@
         }
       ],
       "condition": true
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "UdTodJ",
+        "name": "activeAlarm"
+      },
+      "intent": "activeAlarm",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "MSs42z"
+          },
+          "activityProcessed": true,
+          "dialog": "ActiveAlarm"
+        }
+      ]
     }
   ],
   "generator": "SauterBotOne.lg",

@@ -11,15 +11,6 @@
       "Help": [
         "HelpDialog.en-us"
       ],
-      "test": [
-        "TestCard.en-us"
-      ],
-      "GetAlarm": [
-        "TestCard.en-us"
-      ],
-      "GetTrend": [
-        "GetTrend.en-us"
-      ],
       "goToSVC": [
         "goToSVC.en-us"
       ],
@@ -43,6 +34,9 @@
       ],
       "search": [
         "search.en-us"
+      ],
+      "activeAlarm": [
+        "ActiveAlarm.en-us"
       ]
     }
   }

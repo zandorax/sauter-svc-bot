@@ -52,16 +52,16 @@
             "choices": [
                 {
                     "title": "Schalter",
-                    "value": "2"
+                    "value": "4"
                 },
                 {
                     "title": "Sensoren",
-                    "value": "4"
+                    "value": "2"
                 }
             ],
             "placeholder": "Objekttyp",
             "type": "Input.ChoiceSet",
-            "id": "objectTyp"
+            "id": "objectType"
         }
     ],
     "actions": [

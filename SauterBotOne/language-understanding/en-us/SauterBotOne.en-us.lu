@@ -26,18 +26,8 @@
 - do unicorns really exist
 - duck
 
-# test
-- test
-
 # alarm
 -alarm
-
-# GetTrend
-- trend
-
-# GetAlarm
-- meine Alarme
-- alarm
 
 # goToSVC
 - Sauter Vision Center
@@ -86,3 +76,6 @@
 
 # search
 - search
+
+# activeAlarm
+- aktive alarme
