@@ -92,7 +92,7 @@
           "$designer": {
             "id": "HXoM1f"
           },
-          "resultProperty": "turn.results",
+          "resultProperty": "dialog.alarm",
           "method": "POST",
           "url": "https://localhost:7270/AckTransition?objId=${turn.activity.value[\"dataObjectID\"]}&fromState=${turn.activity.value[\"fromState\"]}&comment=${turn.activity.value[\"comment\"]}"
         },
@@ -101,7 +101,7 @@
           "$designer": {
             "id": "w39Ovu"
           },
-          "condition": "=turn.results.statusCode == 200",
+          "condition": "=dialog.alarm.statusCode == 200",
           "elseActions": [
             {
               "$kind": "Microsoft.SendActivity",

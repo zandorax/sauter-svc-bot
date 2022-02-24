@@ -17,11 +17,113 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.HttpRequest",
           "$designer": {
-            "id": "sL8Leo"
+            "id": "FFL43H",
+            "comment": "https://localhost:7270/\nhttps://svc-connector.azurewebsites.net/"
           },
-          "activity": "${SendActivity_sL8Leo()}"
+          "resultProperty": "dialog.api_response_switch",
+          "method": "GET",
+          "url": "https://svc-connector.azurewebsites.net/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectType\"]}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "2RaZGG"
+          },
+          "condition": "=dialog.api_response_switch.statusCode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.Foreach",
+              "$designer": {
+                "id": "ugR2d9"
+              },
+              "index": "dialog.api_response_switch.content.size",
+              "value": "dialog.foreach.value",
+              "itemsProperty": "dialog.api_response_switch.content",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "L5bJXR"
+                  },
+                  "resultProperty": "dialog.api_response_value",
+                  "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
+                  "method": "GET",
+                  "contentType": "application/json"
+                },
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "ctRYHd"
+                  },
+                  "activity": "${Ask_Activity_ctRYHd()}"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "IETdlM"
+              },
+              "activity": "${SendActivity_IETdlM()}"
+            },
+            {
+              "$kind": "Microsoft.ReplaceDialog",
+              "$designer": {
+                "id": "FbZ9ll"
+              },
+              "activityProcessed": true,
+              "dialog": "search"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.Bot.Components.OnActionSubmit",
+      "$designer": {
+        "id": "buZkwr",
+        "name": "Action.Submit (message activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "gN6raX"
+          },
+          "resultProperty": "dialog.switch",
+          "method": "POST",
+          "url": "https://localhost:7270/DataObject?objectId=${turn.activity.value[\"dataObjectID\"]}&newValue=${turn.activity.value[\"switchState\"]}&comment=${turn.activity.value[\"comment\"]}",
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "YpFjkM"
+          },
+          "condition": "=dialog.switch.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "dTZcQL"
+              },
+              "activity": "${SendActivity_dTZcQL()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "7hR8kO"
+              },
+              "activity": "${SendActivity_7hR8kO()}"
+            }
+          ]
         }
       ]
     }

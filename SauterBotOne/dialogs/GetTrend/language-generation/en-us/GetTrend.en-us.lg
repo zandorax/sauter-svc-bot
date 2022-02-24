@@ -1,7 +1,7 @@
 [import](common.lg)
 
 # SendActivity_XHVc50_text()
-- ${dialog.api_response_object.content}
+- ${dialog.api_response_trend.content}
 # SendActivity_XHVc50()
 [Activity
     Text = ${SendActivity_XHVc50_text()}
@@ -71,34 +71,41 @@
         },
         {
             "type": "TextBlock",
-            "text": "Aktueller Wert: ${dialog.api_response_value.content.value} ${dialog.foreach.value.unit}",
+            "text": "Aktueller Wert: ${dialog.api_response_value.content.value}",
             "wrap": true
         },
         {
             "type": "Input.ChoiceSet",
             "choices": [
                 {
-                    "title": "24 Stunden",
-                    "value": "day"
+                    "title": "Ein",
+                    "value": "1"
                 },
                 {
-                    "title": "7 Tage",
-                    "value": "week"
+                    "title": "Aus",
+                    "value": "0"
                 }
             ],
-            "placeholder": "Trend",
-            "value": "day",
-            "id": "trendType"
+            "placeholder": "Ein",
+            "id": "trendType",
+            "value": "1",
+            "style": "expanded",
+            "spacing": "Small"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Kommentar",
+            "id": "comment"
         }
     ],
     "actions": [
         {
             "type": "Action.Submit",
-            "title": "Zeige Trend",
             "data": {
                 "dataObjectID": "${dialog.foreach.value.id}",
                 "name": "${dialog.foreach.value.name}"
-            }
+            },
+            "title": "Schalten"
         }
     ]
 }```

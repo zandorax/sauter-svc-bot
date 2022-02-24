@@ -42,6 +42,10 @@
                 {
                     "title": "n/a",
                     "value": "0"
+                },
+                {
+                    "title": "null",
+                    "value": "null"
                 }
             ],
             "placeholder": "Einheit",

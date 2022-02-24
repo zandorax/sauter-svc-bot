@@ -1,9 +1,88 @@
 [import](common.lg)
 
-# SendActivity_sL8Leo()
+# SendActivity_IETdlM_text()
+- ${dialog.api_response_switch.content}
+# SendActivity_IETdlM()
 [Activity
-    Text = ${SendActivity_sL8Leo_text()}
+    Text = ${SendActivity_IETdlM_text()}
 ]
 
-# SendActivity_sL8Leo_text()
-- Switch
+# SendActivity_7hR8kO_text()
+- ${turn.activity.value["name"]} wurde geschalten.
+# SendActivity_7hR8kO()
+[Activity
+    Text = ${SendActivity_7hR8kO_text()}
+]
+
+# SendActivity_dTZcQL_text()
+- ${dialog.switch}
+# SendActivity_dTZcQL()
+[Activity
+    Text = ${SendActivity_dTZcQL_text()}
+]
+
+# Ask_Activity_ctRYHd()
+[Activity
+    Attachments = ${json(Ask_Activity_ctRYHd_attachment_0gDoE2())}
+]
+
+# Ask_Activity_ctRYHd_attachment_0gDoE2()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+-```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "${dialog.foreach.value.name}",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Objektbeschreibung: ${dialog.foreach.value.description}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Aktueller Wert: ${dialog.api_response_value.content.value}",
+            "wrap": true
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "Ein",
+                    "value": "1"
+                },
+                {
+                    "title": "Aus",
+                    "value": "0"
+                }
+            ],
+            "placeholder": "Ein",
+            "value": "1",
+            "style": "expanded",
+            "spacing": "Small",
+            "id": "switchState"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Kommentar",
+            "id": "comment"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "data": {
+                "dataObjectID": "${dialog.foreach.value.id}",
+                "name": "${dialog.foreach.value.name}"
+            },
+            "title": "Schalten"
+        }
+    ]
+}```
