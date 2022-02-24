@@ -102,3 +102,17 @@
         }
     ]
 }```
+# SendActivity_nBp7XL()
+[Activity
+    Text = ${SendActivity_nBp7XL_text()}
+]
+
+# SendActivity_nBp7XL_text()
+- True
+# SendActivity_uuNb0V()
+[Activity
+    Text = ${SendActivity_uuNb0V_text()}
+]
+
+# SendActivity_uuNb0V_text()
+- False

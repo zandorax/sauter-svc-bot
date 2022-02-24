@@ -24,7 +24,7 @@
           },
           "resultProperty": "dialog.api_response_object",
           "method": "GET",
-          "url": "https://localhost:7270/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectTyp\"]}"
+          "url": "https://svc-connector.azurewebsites.net/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectTyp\"]}"
         },
         {
           "$kind": "Microsoft.IfCondition",
@@ -33,6 +33,13 @@
           },
           "condition": "=dialog.api_response_object.statusCode == 200",
           "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "nBp7XL"
+              },
+              "activity": "${SendActivity_nBp7XL()}"
+            },
             {
               "$kind": "Microsoft.Foreach",
               "$designer": {
@@ -48,7 +55,7 @@
                     "id": "quzKAg"
                   },
                   "resultProperty": "dialog.api_response_value",
-                  "url": "https://localhost:7270/DataObject/value?objectId=${dialog.foreach.value.id}",
+                  "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
                   "method": "GET",
                   "contentType": "application/json"
                 },
@@ -63,6 +70,13 @@
             }
           ],
           "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "uuNb0V"
+              },
+              "activity": "${SendActivity_uuNb0V()}"
+            },
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
@@ -96,7 +110,7 @@
           },
           "resultProperty": "dialog.trend_url",
           "method": "GET",
-          "url": "https://localhost:7270/Trend/${turn.Activity.Value[\"trendType\"]}?objectId=${turn.Activity.Value[\"dataObjectID\"]}"
+          "url": "https://svc-connector.azurewebsites.net/Trend/${turn.Activity.Value[\"trendType\"]}?objectId=${turn.Activity.Value[\"dataObjectID\"]}"
         },
         {
           "$kind": "Microsoft.Ask",

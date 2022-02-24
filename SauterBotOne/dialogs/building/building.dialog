@@ -22,6 +22,87 @@
             "id": "kRbXtt"
           },
           "activity": "${SendActivity_kRbXtt()}"
+        },
+        {
+          "$kind": "Microsoft.Ask",
+          "$designer": {
+            "id": "Dpt0ja"
+          }
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "kQucAV"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "prompt": "${ChoiceInput_Prompt_kQucAV()}",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineSeparator": ",",
+            "inlineOr": "or",
+            "inlineOrMore": ", or"
+          },
+          "property": "user.choice",
+          "outputFormat": "index",
+          "style": "heroCard",
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "0xZ1qe"
+          },
+          "condition": "=user.choice == 0",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "ivGlco"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.Bot.Components.OnActionSubmit",
+      "$designer": {
+        "id": "j5gq7m",
+        "name": "Action.Submit (message activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "CeKFGO"
+          },
+          "activity": "${SendActivity_CeKFGO()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "UWHcG8"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "https://svc-connector.azurewebsites.net/AckTransition?objId=${turn.Activity.Value[\"dataObjectId\"]}&toState=${turn.Activity.Value[\"toState\"]}&comment=${turn.Activity.Value[\"comment\"]}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "QRGlNI"
+          },
+          "activity": "${SendActivity_QRGlNI()}"
         }
       ]
     }

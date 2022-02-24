@@ -81,13 +81,6 @@
         }
     ]
 }```
-# SendActivity_QRrv3k()
-[Activity
-    Text = ${SendActivity_QRrv3k_text()}
-]
-
-# SendActivity_QRrv3k_text()
-- Hi from Action.Submit 
 # Ask_Activity_b8Q8a0()
 [Activity
     Attachments = ${json(Ask_Activity_b8Q8a0_attachment_3Tk0Pl())}
@@ -505,15 +498,104 @@
 > To learn more Adaptive Cards format, read the documentation at
 > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
 -```{
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-  "version": "1.2",
-  "type": "AdaptiveCard",
-  "body": [
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "${dialog.api_response_alarm.content.alarms[0].DataObjectDescription}",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Objektname: ${dialog.api_response_alarm.content.alarms[0].DataObjectName}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Priorität: ${dialog.api_response_alarm.content.alarms[0].Priority}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Status: ${dialog.api_response_alarm.content.alarms[0].ToState}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Ausgelöst: ${dialog.api_response_alarm.content.alarms[0].ReceivedTimestamp}",
+            "wrap": true
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Your Comment",
+            "id": "comment"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Quittieren",
+            "style": "positive",
+                        "data": {
+                            "dataObjectID": "${dialog.api_response_alarm.content.alarms[0].DataObjectID}",
+                            "toState": "0"
+                        }
+        }
+    ]
+}```
+# SendActivity_4JlacY()
+[Activity
+    Text = ${SendActivity_4JlacY_text()}
+]
+
+# SendActivity_4JlacY_text()
+- ${dialog.api_response_alarm.content}
+# SendActivity_If1GeG()
+[Activity
+    Text = ${SendActivity_If1GeG_text()}
+]
+
+# SendActivity_If1GeG_text()
+- Es hat ${dialog.api_response_alarm.content.size} Alarme
+# SendActivity_4VppjW()
+[Activity
+    Text = ${SendActivity_4VppjW_text()}
+]
+
+# SendActivity_4VppjW_text()
+- Alarm wurde quittiert
+# Ask_Activity_aCAcel()
+[Activity
+    Attachments = ${Ask_Activity_aCAcel_attachment_qJ4N5g()}
+]
+
+# Ask_Activity_aCAcel_attachment_qJ4N5g()
+[HeroCard
+  buttons = Nächster Alarm
+]
+
+# Ask_Activity_HxWkp2()
+[Activity
+    Attachments = ${json(Ask_Activity_HxWkp2_attachment_6FVRMn())}
+]
+
+# Ask_Activity_HxWkp2_attachment_6FVRMn()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+-```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "type": "AdaptiveCard",
+    "body": [
         {
             "type": "TextBlock",
             "text": "${dialog.foreach.value.DataObjectDescription}",
-            "size":"medium",
-            "weight": "bolder",
+            "size": "Medium",
+            "weight": "Bolder",
             "wrap": true
         },
         {
@@ -535,51 +617,22 @@
             "type": "TextBlock",
             "text": "Ausgelöst: ${dialog.foreach.value.ReceivedTimestamp}",
             "wrap": true
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Your Comment",
+            "id": "comment"
         }
     ],
     "actions": [
         {
-            "type": "Action.ShowCard",
+            "type": "Action.Submit",
             "title": "Quittieren",
-            "card": {
-                "type": "AdaptiveCard",
-                "body": [
-                    {
-                        "type": "Input.Text",
-                        "id": "comment",
-                        "placeholder": "Add a comment",
-                        "isMultiline": true
-                    }
-                ],
-                "actions": [
-                    {
-                        "type": "Action.Submit",
-                        "title": "Cancel",
-                        "style": "destructive",
+            "style": "positive",
                         "data": {
-                            "x": "cancel"
-                        }
-                    },
-                    {
-                        "type": "Action.Submit",
-                        "title": "Quittieren",
-                        "style": "positive",
-                        "data": {
-                            "x": "quit",
                             "dataObjectID": "${dialog.foreach.value.DataObjectID}",
                             "toState": "0"
                         }
-                    }
-                ],
-                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
-            }
         }
     ]
 }```
-# SendActivity_4JlacY()
-[Activity
-    Text = ${SendActivity_4JlacY_text()}
-]
-
-# SendActivity_4JlacY_text()
-- ${dialog.api_response_alarm.content}

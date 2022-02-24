@@ -7,3 +7,24 @@
 
 # SendActivity_kRbXtt_text()
 - Gebäude
+# SendActivity_CeKFGO_text()
+- ${turn.Activity.Value["x"]}, ${turn.Activity.Value["dataObjectID"]}, ${turn.Activity.Value["comment"]}, ${turn.Activity.Value["toState"]}
+# SendActivity_CeKFGO()
+[Activity
+    Text = ${SendActivity_CeKFGO_text()}
+]
+
+# SendActivity_QRGlNI_text()
+- Alarm wurde quittiert
+# SendActivity_QRGlNI()
+[Activity
+    Text = ${SendActivity_QRGlNI_text()}
+]
+
+# ChoiceInput_Prompt_kQucAV()
+[Activity
+    Text = ${ChoiceInput_Prompt_kQucAV_text()}
+]
+
+# ChoiceInput_Prompt_kQucAV_text()
+- Nächster Alarm

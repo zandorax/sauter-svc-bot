@@ -34,22 +34,27 @@
           "condition": "=dialog.api_response_alarm.statusCode == 200",
           "actions": [
             {
-              "$kind": "Microsoft.Foreach",
+              "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "oCWPhf"
+                "id": "If1GeG"
               },
-              "index": "dialog.api_response_alarm.content.alarms.size",
-              "value": "dialog.foreach.value",
-              "itemsProperty": "dialog.api_response_alarm.content.alarms",
-              "actions": [
-                {
-                  "$kind": "Microsoft.Ask",
-                  "$designer": {
-                    "id": "9vPQ6Y"
-                  },
-                  "activity": "${Ask_Activity_F83Q4Z()}"
-                }
-              ]
+              "activity": "${SendActivity_If1GeG()}"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "JWAEUW"
+              },
+              "property": "alarm.index",
+              "value": 0
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "1qDSSL"
+              },
+              "activityProcessed": true,
+              "dialog": "building"
             }
           ],
           "elseActions": [
@@ -73,6 +78,13 @@
               },
               "activityProcessed": true,
               "dialog": "WelcomeDialog"
+            },
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "H84rln"
+              },
+              "activity": "${Ask_Activity_F83Q4Z()}"
             }
           ]
         }
@@ -88,13 +100,6 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "QRrv3k"
-          },
-          "activity": "${SendActivity_QRrv3k()}"
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
             "id": "uMvDkd"
           },
           "activity": "${SendActivity_uMvDkd()}"
@@ -107,6 +112,13 @@
           "resultProperty": "turn.results",
           "method": "POST",
           "url": "https://svc-connector.azurewebsites.net/AckTransition?objId=${turn.Activity.Value[\"dataObjectId\"]}&toState=${turn.Activity.Value[\"toState\"]}&comment=${turn.Activity.Value[\"comment\"]}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "4VppjW"
+          },
+          "activity": "${SendActivity_4VppjW()}"
         }
       ]
     }
