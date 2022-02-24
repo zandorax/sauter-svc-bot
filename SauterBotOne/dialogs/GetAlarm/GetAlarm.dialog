@@ -1,9 +1,9 @@
 {
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
-    "id": "cUbb9O",
-    "name": "TestCard",
-    "comment": "Debugging"
+    "id": "ZgeNl4",
+    "name": "ActiveAlarm",
+    "comment": ""
   },
   "autoEndDialog": true,
   "defaultResultProperty": "dialog.result",
@@ -13,13 +13,13 @@
       "$designer": {
         "name": "BeginDialog",
         "description": "",
-        "id": "9jPTCq"
+        "id": "Sx1p1N"
       },
       "actions": [
         {
           "$kind": "Microsoft.HttpRequest",
           "$designer": {
-            "id": "9Wnsyx"
+            "id": "fafoff"
           },
           "resultProperty": "dialog.api_response_alarm",
           "method": "GET",
@@ -29,23 +29,37 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "ObiaVI"
+            "id": "IK56Tz"
           },
           "condition": "=dialog.api_response_alarm.statusCode == 200",
           "actions": [
             {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "48MmgN"
+              },
+              "activity": "${SendActivity_48MmgN()}"
+            },
+            {
               "$kind": "Microsoft.Foreach",
               "$designer": {
-                "id": "oCWPhf"
+                "id": "jKxydp"
               },
               "index": "dialog.api_response_alarm.content.alarms.size",
               "value": "dialog.foreach.value",
               "itemsProperty": "dialog.api_response_alarm.content.alarms",
               "actions": [
                 {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "kXD5vO"
+                  },
+                  "activity": "${SendActivity_kXD5vO()}"
+                },
+                {
                   "$kind": "Microsoft.Ask",
                   "$designer": {
-                    "id": "9vPQ6Y"
+                    "id": "mBalYz"
                   },
                   "activity": "${Ask_Activity_F83Q4Z()}"
                 }
@@ -56,20 +70,20 @@
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "4JlacY"
+                "id": "jJiYg8"
               },
-              "activity": "${SendActivity_4JlacY()}"
+              "activity": "${SendActivity_jJiYg8()}"
             },
             {
               "$kind": "Microsoft.EndDialog",
               "$designer": {
-                "id": "ap9Ptv"
+                "id": "9ya6DG"
               }
             },
             {
               "$kind": "Microsoft.BeginDialog",
               "$designer": {
-                "id": "ZNB5uB"
+                "id": "v0WZqz"
               },
               "activityProcessed": true,
               "dialog": "WelcomeDialog"
@@ -81,14 +95,14 @@
     {
       "$kind": "Microsoft.Bot.Components.OnActionSubmit",
       "$designer": {
-        "id": "AmKCWd",
+        "id": "rY6CVf",
         "name": "Action.Submit (message activity)"
       },
       "actions": [
         {
           "$kind": "Microsoft.HttpRequest",
           "$designer": {
-            "id": "u3kYLA"
+            "id": "hUhAKQ"
           },
           "resultProperty": "turn.results",
           "method": "POST",
@@ -97,14 +111,14 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "GFvDyM"
+            "id": "KJ2tTt"
           },
-          "activity": "${SendActivity_GFvDyM()}"
+          "activity": "${SendActivity_KJ2tTt()}"
         }
       ]
     }
   ],
-  "generator": "TestCard.lg",
-  "recognizer": "TestCard.lu.qna",
-  "id": "TestCard"
+  "generator": "GetAlarm.lg",
+  "recognizer": "GetAlarm.lu.qna",
+  "id": "GetAlarm"
 }
