@@ -22,7 +22,7 @@
             "id": "1ikCxI",
             "comment": "https://localhost:7270/\nhttps://svc-connector.azurewebsites.net/"
           },
-          "resultProperty": "dialog.api_response_object",
+          "resultProperty": "dialog.api_response_trend",
           "method": "GET",
           "url": "https://svc-connector.azurewebsites.net/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectType\"]}"
         },
@@ -31,7 +31,7 @@
           "$designer": {
             "id": "VuJtIV"
           },
-          "condition": "=dialog.api_response_object.statusCode == 200",
+          "condition": "=dialog.api_response_trend.statusCode == 200",
           "actions": [
             {
               "$kind": "Microsoft.Foreach",
@@ -39,8 +39,8 @@
                 "id": "gkzmQq"
               },
               "value": "dialog.foreach.value",
-              "itemsProperty": "dialog.api_response_object.content",
-              "index": "dialog.api_response_object.size",
+              "itemsProperty": "dialog.api_response_trend.content",
+              "index": "dialog.api_response_trend.size",
               "actions": [
                 {
                   "$kind": "Microsoft.HttpRequest",

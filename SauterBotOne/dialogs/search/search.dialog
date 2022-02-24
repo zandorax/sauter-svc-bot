@@ -40,13 +40,6 @@
           "condition": "=turn.activity.value[\"objectType\"] == \"2\"",
           "actions": [
             {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "VTek4V"
-              },
-              "activity": "${SendActivity_VTek4V()}"
-            },
-            {
               "$kind": "Microsoft.ReplaceDialog",
               "$designer": {
                 "id": "XLCWrT"
@@ -56,13 +49,6 @@
             }
           ],
           "elseActions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "rJ5LFj"
-              },
-              "activity": "${SendActivity_rJ5LFj()}"
-            },
             {
               "$kind": "Microsoft.ReplaceDialog",
               "$designer": {

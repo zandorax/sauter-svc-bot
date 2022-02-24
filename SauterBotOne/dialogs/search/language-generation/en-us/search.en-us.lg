@@ -71,16 +71,3 @@
         }
     ]
 }```
-# SendActivity_VTek4V_text()
-- True
-# SendActivity_VTek4V()
-[Activity
-    Text = ${SendActivity_VTek4V_text()}
-]
-
-# SendActivity_rJ5LFj_text()
-- false
-# SendActivity_rJ5LFj()
-[Activity
-    Text = ${SendActivity_rJ5LFj_text()}
-]
