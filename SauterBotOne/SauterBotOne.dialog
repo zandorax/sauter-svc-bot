@@ -117,6 +117,13 @@
           "activity": "${SendActivity_ErrorOccured()}"
         },
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "jC7VFS"
+          },
+          "activity": "${SendActivity_jC7VFS()}"
+        },
+        {
           "$kind": "Microsoft.TraceActivity",
           "$designer": {
             "id": "NVFqr5",
@@ -142,61 +149,202 @@
             "id": "IQMEuO",
             "comment": "It is recommended to show a message to the user when the bot does not know how to handle an incoming activity and provide follow up options or a help message.\n"
           },
-          "activity": "${SendActivity_DidNotUnderstand()}"
+          "activity": "${SendActivity_IQMEuO()}"
         }
       ]
     },
     {
       "$kind": "Microsoft.OnIntent",
       "$designer": {
-        "id": "bmqW9B",
-        "name": "test"
+        "id": "HNKPm3",
+        "name": "goToSVC"
       },
-      "intent": "test",
+      "intent": "goToSVC",
+      "condition": true,
       "actions": [
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "SoUtwK"
+            "id": "vuR0Ut"
           },
           "activityProcessed": true,
-          "dialog": "TestCard"
+          "dialog": "goToSVC"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "szWWNn"
+          },
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "6XKNOl"
+              },
+              "activity": "${SendActivity_6XKNOl()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.Bot.Components.CreateAdaptiveCard",
+              "$designer": {
+                "id": "kaHAKS"
+              },
+              "template": {
+                "type": "AdaptiveCard",
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "version": "1.2",
+                "body": []
+              }
+            }
+          ]
         }
       ]
     },
     {
       "$kind": "Microsoft.OnIntent",
       "$designer": {
-        "id": "jg5O99",
-        "name": "GetAlarm"
+        "id": "iCwj5J",
+        "name": "building"
       },
-      "intent": "GetAlarm",
+      "intent": "building",
       "actions": [
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "4Ghl54"
+            "id": "8obGdJ"
           },
           "activityProcessed": true,
-          "dialog": "TestCard"
+          "dialog": "building"
         }
       ]
     },
     {
       "$kind": "Microsoft.OnIntent",
       "$designer": {
-        "id": "IuviUm",
-        "name": "GetTrend"
+        "id": "sae58u",
+        "name": "floor"
       },
-      "intent": "GetTrend",
+      "intent": "floor",
+      "condition": true,
       "actions": [
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "izmemX"
+            "id": "IfaoPo"
           },
           "activityProcessed": true,
-          "dialog": "GetTrend"
+          "dialog": "floor"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "wJjaMS",
+        "name": "room"
+      },
+      "intent": "room",
+      "condition": true,
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "sJUTkM"
+          },
+          "activityProcessed": true,
+          "dialog": "room"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "zmuPqs",
+        "name": "heating"
+      },
+      "intent": "heating",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "LzHNgY"
+          },
+          "activityProcessed": true,
+          "dialog": "heating"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "4do4iC",
+        "name": "cooling"
+      },
+      "intent": "cooling",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "Ziu97j"
+          },
+          "activityProcessed": true,
+          "dialog": "cooling"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "VaZ4yp",
+        "name": "ventilation"
+      },
+      "intent": "ventilation",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "9BrtdJ"
+          },
+          "activityProcessed": true,
+          "dialog": "ventilation"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "0Ggpw3",
+        "name": "search"
+      },
+      "intent": "search",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "m8UdFA"
+          },
+          "activityProcessed": true,
+          "dialog": "search"
+        }
+      ],
+      "condition": true
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "UdTodJ",
+        "name": "activeAlarm"
+      },
+      "intent": "activeAlarm",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "MSs42z"
+          },
+          "activityProcessed": true,
+          "dialog": "ActiveAlarm"
         }
       ]
     }

@@ -1,0 +1,77 @@
+[import](common.lg)
+
+# Ask_Activity_kY48G3()
+[Activity
+    Attachments = ${json(Ask_Activity_kY48G3_attachment_0vUxIZ())}
+]
+
+# Ask_Activity_kY48G3_attachment_0vUxIZ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "body": [
+        {
+            "text": "Objektsuche",
+            "type": "TextBlock",
+            "size": "Large",
+            "weight": "Bolder"
+        },
+        {
+            "placeholder": "Objektname",
+            "type": "Input.Text",
+            "maxLength": 20,
+            "id": "objectName"
+        },
+        {
+            "choices": [
+                {
+                    "title": "Temperatur (°C)",
+                    "value": "°C"
+                },
+                {
+                    "title": "%",
+                    "value": "%"
+                },
+                {
+                    "title": "ppm",
+                    "value": "ppm"
+                },
+                {
+                    "title": "n/a",
+                    "value": "0"
+                },
+                {
+                    "title": "null",
+                    "value": "null"
+                }
+            ],
+            "placeholder": "Einheit",
+            "type": "Input.ChoiceSet",
+            "id": "objectUnit"
+        },
+        {
+            "choices": [
+                {
+                    "title": "Schalter",
+                    "value": "4"
+                },
+                {
+                    "title": "Sensoren",
+                    "value": "2"
+                }
+            ],
+            "placeholder": "Objekttyp",
+            "type": "Input.ChoiceSet",
+            "id": "objectType"
+        }
+    ],
+    "actions": [
+        {
+            "title": "SUCHEN",
+            "type": "Action.Submit"
+        }
+    ]
+}```

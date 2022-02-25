@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# SendActivity_DjEt1V()
+[Activity
+    Text = ${SendActivity_DjEt1V_text()}
+]
+
+# SendActivity_DjEt1V_text()
+- floor

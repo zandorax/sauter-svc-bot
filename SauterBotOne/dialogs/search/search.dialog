@@ -1,0 +1,68 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "FDy5Qk",
+    "name": "search",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "B8jW7m"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Ask",
+          "$designer": {
+            "id": "kY48G3"
+          },
+          "activity": "${Ask_Activity_kY48G3()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.Bot.Components.OnActionSubmit",
+      "$designer": {
+        "id": "IDUQm3",
+        "name": "Action.Submit (message activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "8rUNpa"
+          },
+          "condition": "=turn.activity.value[\"objectType\"] == \"2\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.ReplaceDialog",
+              "$designer": {
+                "id": "XLCWrT"
+              },
+              "activityProcessed": true,
+              "dialog": "GetTrend"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.ReplaceDialog",
+              "$designer": {
+                "id": "F5o87S"
+              },
+              "activityProcessed": true,
+              "dialog": "GetSwitch"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "search.lg",
+  "recognizer": "search.lu.qna",
+  "id": "search"
+}

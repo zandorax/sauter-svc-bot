@@ -1,0 +1,32 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "LIBWIo",
+    "name": "room",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "uSROIB"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "rHMlvJ"
+          },
+          "activity": "${SendActivity_rHMlvJ()}"
+        }
+      ]
+    }
+  ],
+  "generator": "room.lg",
+  "recognizer": "room.lu.qna",
+  "id": "room"
+}

@@ -1,0 +1,24 @@
+[import](common.lg)
+
+# ConfirmInput_Prompt_fAqT0I()
+[Activity
+    Text = ${ConfirmInput_Prompt_fAqT0I_text()}
+]
+
+# ConfirmInput_Prompt_fAqT0I_text()
+- Wollen sie auf das Sauter Vision Center?
+- Möchten sie auf die Managementebene des SVC weitergleitet werden?
+# SendActivity_9xcVGk()
+[Activity
+    Text = ${SendActivity_9xcVGk_text()}
+]
+
+# SendActivity_9xcVGk_text()
+- Super dann viel Spass auf dem Sauter Vision Center
+# SendActivity_4K9m8P()
+[Activity
+    Text = ${SendActivity_4K9m8P_text()}
+]
+
+# SendActivity_4K9m8P_text()
+- Okay, dann können wir gerne hier weitermachen

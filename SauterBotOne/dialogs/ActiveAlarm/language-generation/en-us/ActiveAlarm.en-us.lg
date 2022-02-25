@@ -1,0 +1,88 @@
+[import](common.lg)
+
+# SendActivity_2N1Jgv()
+[Activity
+    Text = ${SendActivity_2N1Jgv_text()}
+]
+
+# SendActivity_2N1Jgv_text()
+- ${dialog.api_response_alarm.content}
+# Ask_Activity_O2aowv()
+[Activity
+    Attachments = ${json(Ask_Activity_O2aowv_attachment_T5NSUV())}
+]
+
+# Ask_Activity_O2aowv_attachment_T5NSUV()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+-```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "${dialog.foreach.value.DataObjectDescription}",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Objektname: ${dialog.foreach.value.DataObjectName}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Priorität: ${dialog.foreach.value.Priority}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Status: ${dialog.foreach.value.FromState}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Ausgelöst: ${dialog.foreach.value.ReceivedTimestamp}",
+            "wrap": true
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Your Comment",
+            "id": "comment"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Quittieren",
+            "style": "positive",
+                        "data": {
+                            "dataObjectID": "${dialog.foreach.value.DataObjectID}",
+                            "fromState": "${dialog.foreach.value.FromState}"
+                        }
+        }
+    ]
+}```
+# SendActivity_dXz4Qp()
+[Activity
+    Text = ${SendActivity_dXz4Qp_text()}
+]
+
+# SendActivity_dXz4Qp_text()
+- Es hat ${dialog.api_response_alarm.content.size} quittierbare Alarme
+# SendActivity_tGgF2h_text()
+- ${turn.results}
+# SendActivity_tGgF2h()
+[Activity
+    Text = ${SendActivity_tGgF2h_text()}
+]
+
+# SendActivity_93oC3D()
+[Activity
+    Text = ${SendActivity_93oC3D_text()}
+]
+
+# SendActivity_93oC3D_text()
+- Alarm wurde quittiert

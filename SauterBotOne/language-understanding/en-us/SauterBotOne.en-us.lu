@@ -1,5 +1,5 @@
 # Cancel
-- cancel
+- stop
 - quit
 - abort
 - exit
@@ -7,15 +7,14 @@
 - forget about it
 - just stop already
 - end this now
-
+- Ende
 # Help
-- help
-- im stuck
-- how do you work
-- what can you do
-- what can you help me with
-- i need help
-- i need some assistance
+- hilfe
+- können sie mir helfen?
+- Ich habe eine Frage?
+- Was kann ich machen?
+ 
+
 
 # None
 - where is my car?
@@ -27,14 +26,56 @@
 - do unicorns really exist
 - duck
 
-# test
-- test
-
 # alarm
 -alarm
 
-# GetTrend
-- trend
+# goToSVC
+- Sauter Vision Center
+- Vision Center
+- Management Ebene
+- Leitsystem
+- SVC
 
-# GetAlarm
-- meine Alarme
+# building
+- Gebäude
+- Haus
+- Standort
+
+
+# floor
+- Stockwerk
+- Etage
+- floor
+
+# room
+- Raum
+- Zimmer
+- Büro
+- room
+- classroom
+
+
+
+# heating
+- Heizung
+- Heizen
+- Wärme
+
+
+
+# cooling
+- Kälte
+- Kühlen
+
+
+
+# ventilation
+- Lüftung
+- lüften
+- Luft
+
+# search
+- search
+
+# activeAlarm
+- aktive alarme

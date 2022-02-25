@@ -1,0 +1,130 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "5UBfug",
+    "name": "ActiveAlarm",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "WzEi1K"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "aGwkrv"
+          },
+          "resultProperty": "dialog.api_response_alarm",
+          "method": "GET",
+          "url": "https://localhost:7270/Alarm",
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "RNG2e0"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.Foreach",
+              "$designer": {
+                "id": "YQuFcH"
+              },
+              "index": "dialog.api_response_alarm.content.alarms.size",
+              "value": "dialog.foreach.value",
+              "actions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "O2aowv"
+                  },
+                  "activity": "${Ask_Activity_O2aowv()}"
+                }
+              ],
+              "itemsProperty": "dialog.api_response_alarm.content.alarms"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "dXz4Qp"
+              },
+              "activity": "${SendActivity_dXz4Qp()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "2N1Jgv"
+              },
+              "activity": "${SendActivity_2N1Jgv()}"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "YNuow0"
+              },
+              "activityProcessed": true,
+              "dialog": "HelpDialog"
+            }
+          ],
+          "condition": "=dialog.api_response_alarm.statusCode == 200"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.Bot.Components.OnActionSubmit",
+      "$designer": {
+        "id": "gb4bmp",
+        "name": "Action.Submit (message activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "HXoM1f"
+          },
+          "resultProperty": "dialog.alarm",
+          "method": "POST",
+          "url": "https://localhost:7270/AckTransition?objId=${turn.activity.value[\"dataObjectID\"]}&fromState=${turn.activity.value[\"fromState\"]}&comment=${turn.activity.value[\"comment\"]}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "w39Ovu"
+          },
+          "condition": "=dialog.alarm.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "tGgF2h"
+              },
+              "activity": "${SendActivity_tGgF2h()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "93oC3D"
+              },
+              "activity": "${SendActivity_93oC3D()}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ActiveAlarm.lg",
+  "recognizer": "ActiveAlarm.lu.qna",
+  "id": "ActiveAlarm"
+}

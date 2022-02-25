@@ -19,19 +19,91 @@
         {
           "$kind": "Microsoft.HttpRequest",
           "$designer": {
-            "id": "qfp8jD"
+            "id": "1ikCxI",
+            "comment": "https://localhost:7270/\nhttps://svc-connector.azurewebsites.net/"
+          },
+          "resultProperty": "dialog.api_response_trend",
+          "method": "GET",
+          "url": "https://svc-connector.azurewebsites.net/DataObject/search?objectName=${turn.Activity.Value[\"objectName\"]}&objectUnit=${turn.Activity.Value[\"objectUnit\"]}&objectType=${turn.Activity.Value[\"objectType\"]}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "VuJtIV"
+          },
+          "condition": "=dialog.api_response_trend.statusCode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.Foreach",
+              "$designer": {
+                "id": "gkzmQq"
+              },
+              "value": "dialog.foreach.value",
+              "itemsProperty": "dialog.api_response_trend.content",
+              "index": "dialog.api_response_trend.size",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "quzKAg"
+                  },
+                  "resultProperty": "dialog.api_response_value",
+                  "url": "https://svc-connector.azurewebsites.net/DataObject/value?objectId=${dialog.foreach.value.id}",
+                  "method": "GET",
+                  "contentType": "application/json"
+                },
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "HEKdVa"
+                  },
+                  "activity": "${Ask_Activity_HEKdVa()}"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "XHVc50"
+              },
+              "activity": "${SendActivity_XHVc50()}"
+            },
+            {
+              "$kind": "Microsoft.ReplaceDialog",
+              "$designer": {
+                "id": "BWJ5MG"
+              },
+              "activityProcessed": true,
+              "dialog": "search"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.Bot.Components.OnActionSubmit",
+      "$designer": {
+        "id": "XYc76q",
+        "name": "Action.Submit (message activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "ueVThi"
           },
           "resultProperty": "dialog.trend_url",
           "method": "GET",
-          "url": "https://svc-connector.azurewebsites.net//Trend",
-          "contentType": "text/plain"
+          "url": "https://svc-connector.azurewebsites.net/Trend/${turn.Activity.Value[\"trendType\"]}?objectId=${turn.Activity.Value[\"dataObjectID\"]}"
         },
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.Ask",
           "$designer": {
-            "id": "41RAcG"
+            "id": "3CPf3i"
           },
-          "activity": "${SendActivity_41RAcG()}"
+          "activity": "${Ask_Activity_3CPf3i()}"
         }
       ]
     }

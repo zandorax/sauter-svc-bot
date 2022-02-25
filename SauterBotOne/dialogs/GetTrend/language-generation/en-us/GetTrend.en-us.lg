@@ -1,11 +1,18 @@
 [import](common.lg)
 
-# SendActivity_41RAcG()
+# SendActivity_XHVc50_text()
+- ${dialog.api_response_trend.content}
+# SendActivity_XHVc50()
 [Activity
-    Attachments = ${json(SendActivity_41RAcG_attachment_PHprRK())}
+    Text = ${SendActivity_XHVc50_text()}
 ]
 
-# SendActivity_41RAcG_attachment_PHprRK()
+# Ask_Activity_3CPf3i()
+[Activity
+    Attachments = ${json(Ask_Activity_3CPf3i_attachment_oyv4Fo())}
+]
+
+# Ask_Activity_3CPf3i_attachment_oyv4Fo()
 > To learn more Adaptive Cards format, read the documentation at
 > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
 - ```{
@@ -14,7 +21,7 @@
     "version": "1.2",
     "body": [
         {
-            "text": "Trend Raum",
+            "text": "${turn.activity.value.name}",
             "type": "TextBlock",
             "size": "Medium",
             "style": "bolder",
@@ -34,6 +41,71 @@
                     "url": "http://sautervisioncenter.demo.sauter-bc.com/VisionCenter/Account/Login?ReturnUrl=%2FVisionCenter%2F"
                 }
             ]
+        }
+    ]
+}```
+# Ask_Activity_HEKdVa()
+[Activity
+    Attachments = ${json(Ask_Activity_HEKdVa_attachment_VVuMsX())}
+]
+
+# Ask_Activity_HEKdVa_attachment_VVuMsX()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+-```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "${dialog.foreach.value.name}",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Objektbeschreibung: ${dialog.foreach.value.description}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Aktueller Wert: ${dialog.api_response_value.content.value}",
+            "wrap": true
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "Ein",
+                    "value": "1"
+                },
+                {
+                    "title": "Aus",
+                    "value": "0"
+                }
+            ],
+            "placeholder": "Ein",
+            "id": "trendType",
+            "value": "1",
+            "style": "expanded",
+            "spacing": "Small"
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Kommentar",
+            "id": "comment"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "data": {
+                "dataObjectID": "${dialog.foreach.value.id}",
+                "name": "${dialog.foreach.value.name}"
+            },
+            "title": "Schalten"
         }
     ]
 }```
