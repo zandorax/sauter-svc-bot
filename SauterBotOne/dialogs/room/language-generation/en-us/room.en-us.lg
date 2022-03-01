@@ -1,9 +1,0 @@
-[import](common.lg)
-
-# SendActivity_rHMlvJ()
-[Activity
-    Text = ${SendActivity_rHMlvJ_text()}
-]
-
-# SendActivity_rHMlvJ_text()
-- room

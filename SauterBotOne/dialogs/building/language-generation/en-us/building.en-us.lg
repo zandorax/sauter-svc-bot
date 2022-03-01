@@ -1,9 +1,0 @@
-[import](common.lg)
-
-# SendActivity_kRbXtt()
-[Activity
-    Text = ${SendActivity_kRbXtt_text()}
-]
-
-# SendActivity_kRbXtt_text()
-- Gebäude

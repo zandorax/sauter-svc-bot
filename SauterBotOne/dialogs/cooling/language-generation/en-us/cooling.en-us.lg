@@ -1,9 +1,0 @@
-[import](common.lg)
-
-# SendActivity_rNanl1()
-[Activity
-    Text = ${SendActivity_rNanl1_text()}
-]
-
-# SendActivity_rNanl1_text()
-- cooling

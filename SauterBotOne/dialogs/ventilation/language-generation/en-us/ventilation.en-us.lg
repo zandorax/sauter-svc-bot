@@ -1,9 +1,0 @@
-[import](common.lg)
-
-# SendActivity_U1H0PS()
-[Activity
-    Text = ${SendActivity_U1H0PS_text()}
-]
-
-# SendActivity_U1H0PS_text()
-- ventilation

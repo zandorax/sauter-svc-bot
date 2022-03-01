@@ -1,8 +1,0 @@
-{
-  "$kind": "Microsoft.LuisRecognizer",
-  "id": "LUIS_floor",
-  "applicationId": "=settings.luis.floor_en_us_lu.appId",
-  "version": "=settings.luis.floor_en_us_lu.version",
-  "endpoint": "=settings.luis.endpoint",
-  "endpointKey": "=settings.luis.endpointKey"
-}
