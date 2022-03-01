@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "ynWOeI",
-    "name": "GetTrend",
+    "name": "GetTrendDialog",
     "comment": ""
   },
   "autoEndDialog": true,

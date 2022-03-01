@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "FDy5Qk",
-    "name": "search",
+    "name": "ObjectSearch",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -11,7 +11,7 @@
     {
       "$kind": "Microsoft.OnBeginDialog",
       "$designer": {
-        "name": "BeginDialog",
+        "name": "BeginDialogDialog",
         "description": "",
         "id": "B8jW7m"
       },

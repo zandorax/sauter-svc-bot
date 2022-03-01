@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "OBzNmq",
-    "name": "GetSwitch",
+    "name": "GetSwitchDialog",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -96,7 +96,7 @@
           },
           "resultProperty": "dialog.switch",
           "method": "POST",
-          "url": "https://localhost:7270/DataObject?objectId=${turn.activity.value[\"dataObjectID\"]}&newValue=${turn.activity.value[\"switchState\"]}&comment=${turn.activity.value[\"comment\"]}",
+          "url": "https://svc-connector.azurewebsites.net/DataObject?objectId=${turn.activity.value[\"dataObjectID\"]}&newValue=${turn.activity.value[\"switchState\"]}&comment=${turn.activity.value[\"comment\"]}",
           "contentType": "application/json",
           "responseType": "json"
         },

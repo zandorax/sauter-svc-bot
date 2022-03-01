@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "5UBfug",
-    "name": "ActiveAlarm",
+    "name": "ActiveAlarmDialog",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -23,7 +23,7 @@
           },
           "resultProperty": "dialog.api_response_alarm",
           "method": "GET",
-          "url": "https://localhost:7270/Alarm",
+          "url": "https://svc-connector.azurewebsites.net/Alarm",
           "contentType": "application/json",
           "responseType": "json"
         },
@@ -94,7 +94,7 @@
           },
           "resultProperty": "dialog.alarm",
           "method": "POST",
-          "url": "https://localhost:7270/AckTransition?objId=${turn.activity.value[\"dataObjectID\"]}&fromState=${turn.activity.value[\"fromState\"]}&comment=${turn.activity.value[\"comment\"]}"
+          "url": "https://svc-connector.azurewebsites.net/AckTransition?objId=${turn.activity.value[\"dataObjectID\"]}&fromState=${turn.activity.value[\"fromState\"]}&comment=${turn.activity.value[\"comment\"]}"
         },
         {
           "$kind": "Microsoft.IfCondition",
