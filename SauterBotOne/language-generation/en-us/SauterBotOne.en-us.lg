@@ -24,10 +24,3 @@
 # SendActivity_jC7VFS_text()
 - Bitte Fragen si mich nochmals
 - Bitte verfassen sie ihre Frage anderst
-# SendActivity_6XKNOl()
-[Activity
-    Text = ${SendActivity_6XKNOl_text()}
-]
-
-# SendActivity_6XKNOl_text()
-- Kein Problem, dann machen wir hier weiter
