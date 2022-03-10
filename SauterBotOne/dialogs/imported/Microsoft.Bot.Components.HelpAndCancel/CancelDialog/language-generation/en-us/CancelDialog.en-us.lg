@@ -13,7 +13,7 @@
 ]
 
 # SendActivity_CancelConfirmation_text()
-- OK, kein Problem. Wenn ich ihnen später weiterhelfen kann melden sie sich einfach wieder
+- OK, kein Problem. Wenn ich ihnen später weiterhelfen kann melden sie sich einfach wieder.
 # SendActivity_ContinueConfirmation()
 [Activity
     Text = ${SendActivity_ContinueConfirmation_text()}
